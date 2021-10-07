@@ -75,10 +75,10 @@ function addVideoStream(video, stream) {
 
 function NewVideoStream(video, stream) {
   video.srcObject = stream
-  video.on('loadedmetadata', () => {
-    video.play();
-    videoGrid.append(video);
+  video.addEventListener('loadedmetadata', () => {
+    video.play()
   })
+  videoGrid.append(video)
 }
 
 
