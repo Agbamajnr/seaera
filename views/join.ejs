@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Meeting</title>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap');
+
+/* variables */
+:root {
+  --main-color: rgb(30, 62, 122);
+  --second-color: #3893c7;
+  --third-color: #f2f2f2;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  background: url('../img/online-meeting.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+/* nav menu */
+nav{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 100px;
+}
+nav .logo{
+  color: #fff;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+nav .nav-items{
+  display: flex;
+  padding: 0 0 0 20px;
+}
+nav .nav-items li{
+  list-style: none;
+  padding: 0 15px;
+}
+
+
+nav .nav-items li a{
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+}
+nav .nav-items li a:hover{
+  color: #3893c7;
+}
+nav .menu-icon,
+nav .cancel-icon,
+nav .search-icon{
+  width: 40px;
+  text-align: center;
+  margin: 0 50px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+nav .menu-icon span,
+nav .cancel-icon,
+nav .search-icon{
+  display: none;
+}
+@media (max-width: 1245px) {
+  nav{
+    padding: 0 50px;
+  }
+}
+@media (max-width: 1140px){
+  nav{
+    padding: 0px;
+  }
+  nav .logo{
+    flex: 2;
+    text-align: center;
+  }
+  nav .nav-items{
+    position: fixed;
+    z-index: 99;
+    top: 70px;
+    width: 40%;
+    left: -100%;
+    height: 100%;
+    padding: 10px 50px 0 50px;
+    text-align: center;
+    background: rgb(30, 62, 122);;
+    display: inline-block;
+    transition: left 0.9s ease;
+  }
+  nav .nav-items.active{
+    left: 0px;
+  }
+  nav .nav-items li{
+    line-height: 40px;
+    margin: 30px 0;
+  }
+  nav .nav-items li a{
+    font-size: 20px;
+    color: #fff;
+  }
+  nav .nav-items li a:focus,
+  nav .nav-items li a:hover {
+    color: #fff;
+  }
+  nav .menu-icon{
+    display: block;
+  }
+  nav .search-icon,
+  nav .menu-icon span{
+    display: block;
+  }
+  nav .menu-icon span.hide,
+  nav .search-icon.hide{
+    display: none;
+  }
+  nav .cancel-icon.show{
+    display: block;
+  }
+}
+
+.space{
+  margin: 10px 0;
+}
+nav .logo.space{
+  color: red;
+  padding: 0 5px 0 0;
+}
+@media (max-width: 980px){
+  nav .nav-items {
+    width: 50%;
+  }
+  nav .menu-icon,
+  nav .cancel-icon,
+  nav .search-icon{
+    margin: 0 20px;
+  }
+  nav form{
+    right: 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  nav .nav-items {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 600px) {
+  nav .nav-items {
+    width: 65%;
+  }
+}
+@media screen and (max-width: 475px) {
+  nav .nav-items {
+    width: 80%;
+  }
+}
+@media (max-width: 375px){
+  nav .nav-items{
+    width: 100%;
+  }
+  nav .menu-icon,
+  nav .cancel-icon,
+  nav .search-icon{
+    margin: 0 10px;
+    font-size: 16px;
+  }
+}
+
+/* nav menu ends */
+
+
+/* form */
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 120px auto;
+  width: 40%;
+  color: #000;
+  height: fit-content;
+}
+.form input {
+  width: 100%;
+  border: 2px solid #3893c7;
+  opacity: 0.8;
+  height: 39px;
+  color: #000;
+  border-radius: 9px;
+  padding-left: 10px;
+  margin: 10px;
+}
+.form a {
+  text-decoration: none;
+  width: 70%;
+  height: 37px;
+}
+.form a button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #3893c7;
+  border-radius: 9px;
+  color: #fff;
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    background-size: contain;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .form {
+    width: 90%;
+    margin: 50px auto;
+  }
+}
+    </style>
+</head>
+<body>
+    <!--nav menu-->
+    <nav>
+        <div class="menu-icon">
+           <span style="color: #000;" class="fas fa-bars"></span>
+        </div>
+        <div class="logo">
+           Seaera
+        </div>
+        <div class="cancel-icon">
+           <span style="color: #000;" class="fas fa-times"></span>
+        </div>
+        
+
+        <div class="nav-items">
+           <li><a href="/">Home</a></li>
+           <li id="login"><a href="<%= room_url %>">Create Meeting</a></li>
+           <li id="register"><a href="#">Pricing</a></li>
+        </div>
+     </nav>
+
+
+     <!--form-->
+     <div class="form">
+       <input type="text" name="link" id="link" placeholder="Meeting Link" required>
+       <input type="text" name="user" id="user" placeholder="Your Username" required>
+       <a href="" id="join_meeting"><button>Join Meeting</button></a>
+     </div>
+
+
+    <!-- MAIN JS -->
+    
+
+
+    <script>
+
+      //form
+
+      const join_btn = document.getElementById('join_meeting');
+         const link = document.querySelector('#link');
+
+        link.addEventListener('mouseout', () => {
+          if (link.value.length > 0) {
+          join_btn.innerHTML = '<a href= '+ link.value + '><button>Join Meeting</button></a>';
+         // <a href= `${link.value}` id="join_meeting"><button>Join Meeting</button></a>
+          console.log(join_btn)
+        } else {
+          alert('Invalid Url')
+        }
+        })
+
+
+        const menuBtn = document.querySelector(".menu-icon span");
+         const searchBtn = document.querySelector(".search-icon");
+         const cancelBtn = document.querySelector(".cancel-icon");
+         const items = document.querySelector(".nav-items");
+         const form = document.querySelector("form");
+         menuBtn.onclick = ()=>{
+           items.classList.add("active");
+           menuBtn.classList.add("hide");
+           searchBtn.classList.add("hide");
+           cancelBtn.classList.add("show");
+         }
+         cancelBtn.onclick = ()=>{
+           items.classList.remove("active");
+           menuBtn.classList.remove("hide");
+           searchBtn.classList.remove("hide");
+           cancelBtn.classList.remove("show");
+           form.classList.remove("active");
+           cancelBtn.style.color = "#ff3d00";
+         }
+
+
+
+
+         
+    </script>
+</body>
+</html>

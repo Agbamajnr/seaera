@@ -16,10 +16,17 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  res.redirect(`/${uuidV4()}`)
+  //res.redirect(`/${uuidV4()}`)
+  res.render('home', { title: 'Homepage', room_url: `/room/${uuidV4()}`});
 })
 
-app.get('/:room', (req, res) => {
+app.get('/join' , (req , res)=>{
+
+   res.render('join', { title: 'Join', room_url: `/room/${uuidV4()}`});
+
+})
+
+app.get('/room/:room', (req, res) => {
   res.render('room', { roomId: req.params.room })
 })
 

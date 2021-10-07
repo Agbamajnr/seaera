@@ -1,10 +1,13 @@
-const socket = io('/')
+const socket = io('/room')
+const userVideo = document.getElementById('myVideo')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
   path: '/peerjs',
   host: '/',
-  port: '443'
+  port: '3030'
 })
+
+
 let myVideoStream;
 const myVideo = document.createElement('video')
 myVideo.muted = true;
@@ -51,9 +54,9 @@ myPeer.on('open', id => {
 
 function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
-  const video = document.createElement('video')
+  const video = document.createElement('video').setAttribute("id", "participants-video")
   call.on('stream', userVideoStream => {
-    addVideoStream(video, userVideoStream)
+    NewaddVideoStream(video, userVideoStream)
   })
   call.on('close', () => {
     video.remove()
@@ -63,6 +66,14 @@ function connectToNewUser(userId, stream) {
 }
 
 function addVideoStream(video, stream) {
+  video.srcObject = stream
+  video.addEventListener('loadedmetadata', () => {
+    video.play()
+  })
+  userVideo.append(video)
+}
+
+function NewaddVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
     video.play()
