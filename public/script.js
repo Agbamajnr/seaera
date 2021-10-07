@@ -78,7 +78,7 @@ function NewVideoStream(video, stream) {
   video.addEventListener('loadedmetadata', () => {
     video.play()
   })
-  videoGrid.join(video)
+  videoGrid =+ video;
 }
 
 
