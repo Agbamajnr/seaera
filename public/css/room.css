@@ -45,6 +45,10 @@ body {
     width: 100%;
     height: 30%;
 }
+.container .main .main__right #myVideo video {
+    width: 100%;
+    height: 100%;
+}
 
 .container .main .main__left .main__videos {
     background-color: black;
