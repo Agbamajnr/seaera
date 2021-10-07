@@ -1,5 +1,6 @@
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
+const userVideo = document.getElementById('myVideo')
 const myPeer = new Peer(undefined, {
   path: '/peerjs',
   host: '/',
@@ -21,7 +22,7 @@ navigator.mediaDevices.getUserMedia({
     call.answer(stream)
     const video = document.createElement('video')
     call.on('stream', userVideoStream => {
-      addVideoStream(video, userVideoStream)
+      NewVideoStream(video, userVideoStream)
     })
   })
 
@@ -55,7 +56,7 @@ function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
   const video = document.createElement('video')
   call.on('stream', userVideoStream => {
-    addVideoStream(video, userVideoStream)
+    NewVideoStream(video, userVideoStream)
   })
   call.on('close', () => {
     video.remove()
@@ -69,9 +70,16 @@ function addVideoStream(video, stream) {
   video.addEventListener('loadedmetadata', () => {
     video.play()
   })
-  videoGrid.append(video)
+  userVideo.append(video)
 }
 
+function NewVideoStream(video, stream) {
+  video.srcObject = stream
+  video.addEventListener('loadedmetadata', () => {
+    video.play()
+  })
+  videoGrid.append(video)
+}
 
 
 const scrollToBottom = () => {
