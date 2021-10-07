@@ -4,7 +4,7 @@ const userVideo = document.getElementById('myVideo')
 const myPeer = new Peer(undefined, {
   path: '/peerjs',
   host: '/',
-  port: '443'
+  port: '3030'
 })
 
 
@@ -70,7 +70,7 @@ function addVideoStream(video, stream) {
   video.addEventListener('loadedmetadata', () => {
     video.play()
   })
-  userVideo.append(video)
+  userVideo += video
 }
 
 function NewVideoStream(video, stream) {
