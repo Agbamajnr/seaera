@@ -254,7 +254,7 @@ nav .logo.space{
 
         <div class="nav-items">
            <li><a href="/">Home</a></li>
-           <li id="login"><a href="<%= room_url %>">Create Meeting</a></li>
+           <li id="login"><a href="/create">Create Meeting</a></li>
            <li id="register"><a href="#">Pricing</a></li>
         </div>
      </nav>
@@ -279,9 +279,9 @@ nav .logo.space{
       const join_btn = document.getElementById('join_meeting');
          const link = document.querySelector('#link');
 
-        link.addEventListener('click', () => {
+        join_btn.addEventListener('click', () => {
           if (link.value.length > 0) {
-            join_btn.setAttribute("href", `https://seaera.herokuapp.com/room/${link.value}`)
+            join_btn.setAttribute("href", `https://seaera.herokuapp.com/room/${link.value}`);
           //join_btn.innerHTML = '<a href=""+ link.value + '><button>Join Meeting</button></a>';
          // <a href= `${link.value}` id="join_meeting"><button>Join Meeting</button></a>
           console.log(join_btn)
@@ -289,6 +289,7 @@ nav .logo.space{
           alert('Invalid Url')
         }
         })
+    
 
 
         const menuBtn = document.querySelector(".menu-icon span");
