@@ -98,7 +98,7 @@ let text = $('input');
     });
 
     socket.on('createMessage', message => {
-        $('ul').append(`<li class="message"><b>${user.toString}</b><br />${message}</li>`)
+        $('ul').append(`<li class="message"><b>${user}</b><br />${message}</li>`)
         scrollToBottom();
     })
 

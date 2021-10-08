@@ -70,7 +70,7 @@ video{
 }
 
 .leave_meeting{
-    color: #EB534B;
+    color: #EB534B !important;
     text-decoration: none;
     font-size: 18px;
 }
