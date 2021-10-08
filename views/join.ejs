@@ -279,9 +279,10 @@ nav .logo.space{
       const join_btn = document.getElementById('join_meeting');
          const link = document.querySelector('#link');
 
-        link.addEventListener('mouseout', () => {
+        link.addEventListener('click', () => {
           if (link.value.length > 0) {
-          join_btn.innerHTML = '<a href= '+ link.value + '><button>Join Meeting</button></a>';
+            join_btn.setAttribute("href", link.value)
+          //join_btn.innerHTML = '<a href= '+ link.value + '><button>Join Meeting</button></a>';
          // <a href= `${link.value}` id="join_meeting"><button>Join Meeting</button></a>
           console.log(join_btn)
         } else {

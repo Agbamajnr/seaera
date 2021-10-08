@@ -26,6 +26,12 @@ app.get('/join' , (req , res)=>{
 
 })
 
+app.get('/create' , (req , res)=>{
+
+   res.render('create')
+
+})
+
 app.get('/room/:room', (req, res) => {
   res.render('room', { roomId: req.params.room, title: 'Homepage' })
 })

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Meeting</title>
+    
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* form */
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 120px auto;
+  width: 40%;
+  color: #000;
+  height: fit-content;
+}
+.form h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+}
+.form input {
+  width: 100%;
+  border: 2px solid #3893c7;
+  opacity: 0.8;
+  height: 39px;
+  color: #000;
+  border-radius: 9px;
+  padding-left: 10px;
+  margin: 10px;
+}
+.form a {
+  text-decoration: none;
+  width: 70%;
+  height: 37px;
+}
+.form a button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #3893c7;
+  border-radius: 9px;
+  color: #fff;
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    background-size: contain;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .form {
+    width: 90%;
+    margin: 50px auto;
+  }
+}
+    </style>
+</head>
+<body>
+    
+    <div class="form">
+        <h2>Meeting name</h2>
+        <input type="text" id="url" placeholder=" Meeting room Name">
+        <a href="" id="create_meeting"><button>Create Meeting</button></a>
+    </div>
+
+
+    <script>
+        const create_btn =  document.getElementById('create_meeting');
+        const link = document.getElementById('url');
+
+        create_btn.addEventListener('click', () => {
+            create_btn.setAttribute("href", `/room/${link.value}`);
+        })
+    </script>
+</body>
+</html>
