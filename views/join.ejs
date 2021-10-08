@@ -281,8 +281,8 @@ nav .logo.space{
 
         link.addEventListener('click', () => {
           if (link.value.length > 0) {
-            join_btn.setAttribute("href", link.value)
-          //join_btn.innerHTML = '<a href= '+ link.value + '><button>Join Meeting</button></a>';
+            join_btn.setAttribute("href", `https://seaera.herokuapp.com/room/${link.value}`)
+          //join_btn.innerHTML = '<a href=""+ link.value + '><button>Join Meeting</button></a>';
          // <a href= `${link.value}` id="join_meeting"><button>Join Meeting</button></a>
           console.log(join_btn)
         } else {

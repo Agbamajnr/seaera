@@ -86,6 +86,8 @@ peer.on('open', id => {
     socket.emit('join-room', ROOM_ID, id);
 });
 
+const user = prompt('Your Username');
+
 let text = $('input');
     $('html').keydown(e => {
         if (e.which == 13 && text.val().length !== 0) {
@@ -96,7 +98,7 @@ let text = $('input');
     });
 
     socket.on('createMessage', message => {
-        $('ul').append(`<li class="message"><b>user</b><br />${message}</li>`)
+        $('ul').append(`<li class="message"><b>${user.toString}</b><br />${message}</li>`)
         scrollToBottom();
     })
 

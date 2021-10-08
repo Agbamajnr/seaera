@@ -17,12 +17,12 @@ app.use(express.static('public'))
 
 app.get('/', (req, res) => {
   //res.redirect(`/${uuidV4()}`)
-  res.render('home', { title: 'Homepage', room_url: `/room/${uuidV4()}`});
+  res.render('home', { title: 'Homepage'});
 })
 
 app.get('/join' , (req , res)=>{
 
-   res.render('join', { title: 'Join', room_url: `/room/${uuidV4()}`});
+   res.render('join', { title: 'Join'});
 
 })
 
