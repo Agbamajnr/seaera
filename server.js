@@ -36,7 +36,11 @@ app.get('/room/:room', (req, res) => {
   res.render('room', { roomId: req.params.room, title: 'Homepage' })
 })
 
+app.get('/exit' , (req , res)=>{
 
+   res.render('exit')
+
+})
 
 io.on('connection', socket => {
   socket.on('join-room', (roomId, userId) => {
